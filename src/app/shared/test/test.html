@@ -1,0 +1,46 @@
+@if(isLogin){
+
+<h2 class="test-structureDirective">Xin chào</h2>
+
+}
+<p class="text-center">Dữ liệu hiện tại: {{infor}}</p>
+
+<app-test-child
+    [infor] = "infor"
+    (send)="receiveData($event)">
+</app-test-child>
+
+
+<br>
+
+<button
+    class="btn btn-primary"
+    (click)="callChild()">
+    Gọi Child
+</button>
+
+<button
+    class="btn btn-success ms-2"
+    (click)="changeChildMessage()">
+    Đổi dữ liệu
+</button>
+
+<div appHighlight class="test-Interpolation bg-info text-white">
+    {{title}}
+</div>
+
+<div class="test-structureDirective">
+    @for(student of students; track student){
+
+    <p> {{student}}</p>
+
+    }
+</div>
+
+
+
+<img class="img-fluid" [src]="imageUrl" alt="anh">
+
+<button (click)="updateTitle()">Update Title</button>
+
+<input [(ngModel)]="title" type="text">
