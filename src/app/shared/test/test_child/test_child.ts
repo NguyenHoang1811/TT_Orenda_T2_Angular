@@ -1,9 +1,11 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, ElementRef,ContentChild } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 @Component({
     selector: 'app-test-child',
-    imports: [FormsModule],
+    imports: [
+        FormsModule,
+    ],
     templateUrl: './test_child.html',
     styleUrl: './test_child.css'
 })
@@ -25,4 +27,7 @@ export class TestChild {
     changeMessage() {
         this.message = "ViewChild đã thay đổi";
     }
+
+    @ContentChild('contentChildTitle')
+    contentChildTitle!:ElementRef
 }   

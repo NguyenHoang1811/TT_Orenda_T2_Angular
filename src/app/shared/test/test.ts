@@ -1,14 +1,16 @@
-import { Component, ViewChild } from "@angular/core";
-// import { CommonModule } from "@angular/common";
+import { Component, ViewChild} from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { Highlight } from "./directives/highlightDirective";
 import { FormsModule } from "@angular/forms";
 import { TestChild } from "./test_child/test_child";
+import { StudentService } from "./services/studentService";
+
 
 @Component({
     selector: 'app-test',
     standalone: true,
     imports: [
-        // CommonModule,
+        CommonModule,
         Highlight,
         FormsModule,
         TestChild
@@ -19,11 +21,12 @@ import { TestChild } from "./test_child/test_child";
 
 
 export class Test{
+    
     title = 'Hello my-app';
 
     isLogin = true;
 
-    students = [
+    studentsList = [
         'An',
         'Binh',
         'Hoang'
@@ -35,7 +38,7 @@ export class Test{
         this.title = 'Nothing123';
     }
 
-    infor = "Text something"
+    infor = "Text something";
 
     receiveData(data: string){
         this.infor=data;
@@ -44,6 +47,7 @@ export class Test{
     @ViewChild(TestChild)
     child!:TestChild;
 
+
     callChild() {
         this.child.showMessage();
     }
@@ -51,4 +55,13 @@ export class Test{
     changeChildMessage() {
         this.child.changeMessage();
     }
+
+    students:string[]=[];
+    constructor(private studentService: StudentService){
+        this.students = this.studentService.studentGetList();
+    }
+    price = 1234567.89;
+
+    today = new Date();
+    
 }

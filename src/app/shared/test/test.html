@@ -8,6 +8,8 @@
 <app-test-child
     [infor] = "infor"
     (send)="receiveData($event)">
+
+    <h3 #contentChildTitle>Nội dung từ parent</h3>
 </app-test-child>
 
 
@@ -26,11 +28,11 @@
 </button>
 
 <div appHighlight class="test-Interpolation bg-info text-white">
-    {{title}}
+    {{title | titlecase}}
 </div>
 
 <div class="test-structureDirective">
-    @for(student of students; track student){
+    @for(student of studentsList; track student){
 
     <p> {{student}}</p>
 
@@ -38,9 +40,25 @@
 </div>
 
 
-
 <img class="img-fluid" [src]="imageUrl" alt="anh">
 
 <button (click)="updateTitle()">Update Title</button>
 
 <input [(ngModel)]="title" type="text">
+
+@for(student of students; track student){
+    <p>{{student}}</p>
+}
+
+<p>{{ price | number }}</p>
+<p>{{ price | number:'1.2-2' }}</p>
+<p>{{ price | currency:'VND' }}</p>
+<p>{{ price | currency: '$' }}</p>
+
+<p>{{ today }}</p>
+
+<p>{{ today | date }}</p>
+
+<p>{{ today | date:'dd/MM/yyyy' }}</p>
+
+<p>{{ today | date:'HH:mm:ss' }}</p>
