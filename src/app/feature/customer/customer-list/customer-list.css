@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+}
+
+button[nz-button] {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+a {
+  cursor: pointer;
+}
