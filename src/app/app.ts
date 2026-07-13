@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from './shared/layout/header/header';
 import { Footer } from './shared/layout/footer/footer';
 import { Test } from './shared/test/test';
+import { TestRxjs } from './shared/testRxjs/testRxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { Test } from './shared/test/test';
     RouterOutlet,
     Header,
     Footer, 
-    Test
+    Test,
+    TestRxjs
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
